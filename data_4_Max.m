@@ -13,6 +13,7 @@ I_vert=data.vert(index1:index2);
 Rc=data.R0(index1:index2);
 Zc=data.z0(index1:index2);
 Bsens=data.mirnv_corr(:,(index1:index2))/(50*49e-6);
+ Bsens(10,:)=Bsens(10,:)*1.2803;
 time=time1(index1:index2)-108.7;
 
 ISTTOK.Ip=Ip;
@@ -23,3 +24,9 @@ ISTTOK.Rc=Rc;
 ISTTOK.Zc=Zc;
 ISTTOK.Bsens=Bsens;
 ISTTOK.time=time;
+
+for i=1:12
+plot(time,Bsens(i,:))
+hold on
+grid on
+end
