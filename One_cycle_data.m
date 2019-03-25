@@ -1,6 +1,8 @@
 close all
 clear all
-load('shot_45988');
+load('shot_45994');
+load('shot_46023');
+load('shot_46037')
 
 time1=1e-3*data.time;
 %60.9
@@ -20,9 +22,19 @@ time1=1e-3*data.time;
 %138.1
 %138.8
 %164.6
+%%%%%% 46020
+%54.2
+%80.2
+%%%% 46019
+%32.8
+%58.7
+%%% 46023
+%52.9
+%78.8
 
-index1=find(time1 == 140.9);
-index2=find(time1 == 166.9);
+index1=find(time1 == 336.3);
+
+index2=find(time1 == 360.7);
 
 Ip=data.Ip_magn(index1:index2);
 I_prim=data.prim(index1:index2);
@@ -44,7 +56,7 @@ ISTTOK.Bsens=double(Bsens);
 ISTTOK.time=double(time);
 
 inputs=[ISTTOK.I_prim,ISTTOK.I_vert,ISTTOK.I_hor];
-outputs=[ISTTOK.Ip, ISTTOK.Rc,ISTTOK.Zc];
+outputs=[ ISTTOK.Rc,ISTTOK.Zc];
 
 
 
