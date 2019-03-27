@@ -3,7 +3,8 @@ clear all
 load('shot_45994');
 load('shot_46023');
 load('shot_46037')
-
+load('shot_46045')
+load('shot_46061')
 time1=1e-3*data.time;
 %60.9
 %86.9
@@ -31,10 +32,14 @@ time1=1e-3*data.time;
 %%% 46023
 %52.9
 %78.8
+%%%% 46036
+%336.3
+%360.7
+%%% 46045
 
-index1=find(time1 == 336.3);
+index1=find(time1 == 7.7);
 
-index2=find(time1 == 360.7);
+index2=find(time1 == 33.6);
 
 Ip=data.Ip_magn(index1:index2);
 I_prim=data.prim(index1:index2);
