@@ -1,10 +1,13 @@
 close all
 clear all
-load('shot_45994');
-load('shot_46023');
-load('shot_46037')
-load('shot_46045')
-load('shot_46061')
+% % load('shot_45994');
+% load('shot_46023');
+% load('shot_46037')
+% load('shot_46045')
+% load('shot_46061')
+% load('shot_45994')
+% load('shot_46076')
+load('shot_46093')
 time1=1e-3*data.time;
 %60.9
 %86.9
@@ -32,14 +35,19 @@ time1=1e-3*data.time;
 %%% 46023
 %52.9
 %78.8
-%%%% 46036
+%%%% 46037
 %336.3
 %360.7
-%%% 46045
+%%% 46076
+%59.4
+%85.3
+%%% 46093
+%877.9
+%901.7
 
-index1=find(time1 == 7.7);
 
-index2=find(time1 == 33.6);
+index1=find(time1 == 929.4);
+index2=find(time1 == 955.1);
 
 Ip=data.Ip_magn(index1:index2);
 I_prim=data.prim(index1:index2);
@@ -67,6 +75,10 @@ outputs=[ ISTTOK.Rc,ISTTOK.Zc];
 
 inputs1=[ISTTOK.I_vert,ISTTOK.I_hor];
 outputs1=[ISTTOK.Rc,ISTTOK.Zc];
+
+
+inputs2=[ISTTOK.I_vert,ISTTOK.I_hor];
+outputs2=[ISTTOK.Rc];
 
 % for i=1:12
 % plot(time,Bsens(i,:))
