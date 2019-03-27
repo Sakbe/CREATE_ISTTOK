@@ -47,7 +47,7 @@ time1=1e-3*data.time;
 
 
 index1=find(time1 == 929.4);
-index2=find(time1 == 955.1);
+index2=find(time1 == 1020.1);
 
 Ip=data.Ip_magn(index1:index2);
 I_prim=data.prim(index1:index2);
