@@ -46,8 +46,12 @@ time1=1e-3*data.time;
 %901.7
 
 
-index1=find(time1 == 929.4);
-index2=find(time1 == 1020.1);
+%% Ridhima shot 46093 inversion at the ned
+%% 46091 inversion at the beggining
+
+
+index1=find(time1 == 877.9);
+index2=find(time1 == 955.1);
 
 Ip=data.Ip_magn(index1:index2);
 I_prim=data.prim(index1:index2);
@@ -68,6 +72,7 @@ ISTTOK.Zc=double(Zc);
 ISTTOK.Bsens=double(Bsens);
 ISTTOK.time=double(time);
 
+%%
 inputs=[ISTTOK.I_prim,ISTTOK.I_vert,ISTTOK.I_hor];
 outputs=[ ISTTOK.Rc,ISTTOK.Zc];
 
@@ -80,11 +85,33 @@ outputs1=[ISTTOK.Rc,ISTTOK.Zc];
 inputs2=[ISTTOK.I_vert,ISTTOK.I_hor];
 outputs2=[ISTTOK.Rc];
 
+%% interpolate position
+j=0;
+for i=1:length(time)
+if(ISTTOK.Ip(i) < 750 & ISTTOK.Ip(i) > -750)
+    j=j+1;
+    indexes(j)=i;
+else
+end   
+end
+%%%    240   241   242   243   244   245   246   508   509   510   511   512   513   514
+interp1([time(239),time(247)],[ISTTOK.Rc(239),ISTTOK.Rc(247)],time(239:247),'spline')
+
+
+
+%%%
 % for i=1:12
 % plot(time,Bsens(i,:))
 % hold on
 % grid on
 % end
-
+subplot(3,1,1)
 plot(time, ISTTOK.Ip)
+grid on
+subplot(3,1,2)
+plot(time,ISTTOK.Rc)
+grid on
+subplot(3,1,3)
+plot(time,ISTTOK.Zc)
+grid on
 hold on
