@@ -1,13 +1,15 @@
 close all
 clear all
-% % load('shot_45994');
+% load('shot_45994');
 % load('shot_46023');
 % load('shot_46037')
 % load('shot_46045')
-% load('shot_46061')
+% load('shot_46237')
 % load('shot_45994')
 % load('shot_46076')
-load('shot_46093')
+% load('shot_46093')
+% load('shot_46241');
+load('shot_46000');
 time1=1e-3*data.time;
 
 figure()
@@ -15,8 +17,8 @@ plot(time1,data.Ip_magn)
 grid on
 return
 %% Select time window
-index1=find(time1 == 105.4);
-index2=find(time1 == 129.6);
+index1=find(time1 ==167.3);
+index2=find(time1 == 192.3);
 
 Ip=data.Ip_magn(index1:index2);
 I_prim=data.prim(index1:index2);
@@ -38,10 +40,11 @@ ISTTOK.time=double(time);
 
 
 %%
-inputs=[ISTTOK.I_prim,ISTTOK.I_vert,ISTTOK.I_hor];
+% inputs=[ISTTOK.I_prim,ISTTOK.I_vert,ISTTOK.I_hor];
+inputs=[ISTTOK.I_vert,ISTTOK.I_hor];
 outputs=[ ISTTOK.Rc,ISTTOK.Zc];
 Ts=100e-6;
-exp3=iddata(outputs,inputs,Ts);
+exp4=iddata(outputs,inputs,Ts);
 
 %% Filter the position
 Rc_fil=lowpass(ISTTOK.Rc,1000,1/Ts);
@@ -49,4 +52,4 @@ Zc_fil=lowpass(ISTTOK.Zc,1000,1/Ts);
 
 outputs1=[ Rc_fil,Zc_fil];
 
-exp4=iddata(outputs1,inputs,Ts);
+exp6=iddata(outputs1,inputs,Ts);

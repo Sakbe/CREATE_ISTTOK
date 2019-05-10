@@ -5,7 +5,8 @@ clear all
 % load('shot_46037')
 % load('shot_46045')
 % load('shot_46061')
-% load('shot_45994')
+ load('shot_45994')
+ data1=data;
 % load('shot_46076')
 load('shot_46093')
 time1=1e-3*data.time;
@@ -71,6 +72,7 @@ ISTTOK.Rc=double(Rc);
 ISTTOK.Zc=double(Zc);
 ISTTOK.Bsens=double(Bsens);
 ISTTOK.time=double(time);
+ident
 
 %%
 inputs=[ISTTOK.I_prim,ISTTOK.I_vert,ISTTOK.I_hor];
@@ -84,6 +86,10 @@ outputs1=[ISTTOK.Rc,ISTTOK.Zc];
 
 inputs2=[ISTTOK.I_vert,ISTTOK.I_hor];
 outputs2=[ISTTOK.Rc];
+
+
+inputs3=[ISTTOK.I_vert];
+outputs3=[ISTTOK.Rc];
 
 %% interpolate position
 j=0;
